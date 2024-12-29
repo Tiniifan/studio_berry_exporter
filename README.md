@@ -10,7 +10,7 @@ Before installing **Studio Berry**, ensure you have installed and activated the 
 
 ### Steps to Install Studio Berry:
 
-1. Download the latest version of **Studio Berry** from this repository.  
+1. Download the latest version [here](https://github.com/Tiniifan/studio_berry_exporter/releases/latest)
 2. Wait for the download to complete.  
 3. Open Blender, then go to **Edit** > **Preferences** > **Add-ons** > **Install**.  
 4. Select the downloaded `.py` file.  
