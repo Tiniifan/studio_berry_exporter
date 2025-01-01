@@ -7,7 +7,7 @@ bl_info = {
     "category": "Export",
     "description": "Addon to export a berrybush model for easy compatibility with studio_eleven",
     "author": "Tinifan",
-    "version": (1, 0, 0),
+    "version": (1, 0, 1),
     "blender": (2, 80, 2),
     "location": "Object Context Menu (Right-Click)",
     "warning": "",
@@ -125,11 +125,15 @@ class ConvertBerryToStudioView(bpy.types.Operator):
                             for material_slot in original_obj.material_slots:
                                 if material_slot.material:
                                     obj.data.materials.append(material_slot.material)
-
+                            
+                            # Rename materials
+                            for mat in obj.data.materials:
+                                mat.name = f'DefaultLib.{obj.name}'
+                            
                             # Transfer the draw priority
                             if hasattr(original_obj.data, 'brres'):
                                 if hasattr(obj.data, 'level5_properties'):
-                                    obj.data.level5_properties.draw_priority = original_obj.data.brres.drawPrio
+                                    obj.data.level5_properties.draw_priority = original_obj.data.brres.drawPrio + 10
                         
                             # Match parents
                             if original_obj.parent:                                
